@@ -1,64 +1,50 @@
 
+import ProjectCard from "@/components/ProjectCard";
+import workoutImage from "@/assets/workout.png";
+import kidsmathsolution from "@/assets/kids-math-solution.png";
+import flowandbee from "@/assets/flow-and-bee.png";
 
-import ProjectCard from "./ProjectCard";
-function Project() {
+function Projects() {
   return (
-    <section
-      id="Projects"
-      className="relative overflow-hidden bg-[#080814] px-6 py-24 text-white md:px-12"
-    >
-      {/* Background Glow */}
-      <div className="pointer-events-none absolute -left-32 top-20 h-80 w-80 rounded-full bg-violet-600/10 blur-3xl" />
+    <section id="projects" className="p-6 md:p-16 text-white scroll-mt-24 ">
+      <h1 className="mb-8 text-3xl font-bold text-[#765C48]">My Projects</h1>
 
-      <div className="relative mx-auto max-w-7xl">
+      <div className="flex flex-wrap gap-6">
+        <ProjectCard
+          number="01"
+          title="Workout Tracker"
+          main="🏋️ A simple and interactive Workout Tracker to track sets, monitor progress, and stay motivated toward your fitness goals! 💪"
+          technologies={["React", "TypeScript", "Tailwind CSS"]}
+          image={workoutImage}
+          demo="https://workout-tracker-khaki-ten.vercel.app/"
+          github="https://github.com/ansharahnaeem/workout-tracker"
+          linkedin="https://lnkd.in/p/drc33cih"
+        />
 
-        {/* Heading */}
-        <div className="mb-14 text-center">
-          <p className="mb-3 text-xs font-bold tracking-[0.3em] text-fuchsia-400">
-            MY CREATIVE WORK
-          </p>
+        <ProjectCard
+          number="02"
+          title="Kids Math Solution"
+          main="🧮 A fun and interactive Kids Math Solver that makes learning math easy, engaging, and enjoyable! 🎉"
+          technologies={["HTML", "CSS", "JS"]}
+          image={kidsmathsolution}
+          demo="https://kids-math-solution.vercel.app/"
+          github="https://github.com/ansharahnaeem/js-assignment-04"
+          linkedin="https://lnkd.in/p/db7zFqqN"
+        />
 
-          <h2 className="text-4xl font-black md:text-5xl">
-            Featured{" "}
-            <span className="bg-gradient-to-r from-violet-400 to-pink-400 bg-clip-text text-transparent">
-              Projects.
-            </span>
-          </h2>
-
-          <p className="mx-auto mt-5 max-w-xl leading-7 text-slate-400">
-            A collection of projects where creativity meets
-            clean code and modern web technologies.
-          </p>
-        </div>
-
-        {/* Project Cards */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-
-          <ProjectCard
-            number="01"
-            title="Landing Page"
-            main="A modern and responsive landing page built with React and Tailwind CSS."
-            technologies={["React", "Tailwind CSS"]}
-          />
-
-          <ProjectCard
-            number="02"
-            title="Shopping Quality Tracker"
-            main="An interactive tracking application with a clean interface and dynamic functionality."
-            technologies={["React", "TypeScript"]}
-          />
-
-          <ProjectCard
-            number="03"
-            title="Attendance Tracker"
-            main="A responsive application for tracking student attendance with interactive controls."
-            technologies={["React", "TypeScript"]}
-          />
-
-        </div>
+        <ProjectCard
+          number="03"
+          title="Shopping Quality Tracker"
+          main="Flow & Bee is a creative, modern website designed to deliver a smooth  user experience with beautiful visuals , user-friendly interface! ✨."
+          technologies={["HTML", "CSS"]}
+          image={flowandbee}
+          demo="https://flow-and-bee.vercel.app/"
+          github="https://github.com/ansharahnaeem/Assignment-16"
+          linkedin="https://lnkd.in/p/dCF3Kz_E"
+        />
       </div>
     </section>
   );
 }
 
-export default Project;
+export default Projects;

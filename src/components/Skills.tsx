@@ -5,184 +5,132 @@ import {
   RiJavascriptFill,
   RiReactjsLine,
   RiGithubFill,
-  RiCloudLine,
   RiCodeSSlashLine,
   RiTerminalBoxLine,
+  RiCloudLine,
 } from "react-icons/ri";
 
 const skills = [
-  {
-    name: "HTML5",
-    level: 100,
-    icon: RiHtml5Fill,
-    color: "text-orange-400",
-  },
-  {
-    name: "CSS3",
-    level: 100,
-    icon: RiCss3Fill,
-    color: "text-blue-400",
-  },
+  { name: "HTML5", icon: RiHtml5Fill, category: "Structure" },
+  { name: "CSS3", icon: RiCss3Fill, category: "Styling" },
   {
     name: "JavaScript",
-    level: 100,
     icon: RiJavascriptFill,
-    color: "text-yellow-400",
+    category: "Programming",
   },
-  {
-    name: "React JS",
-    level: 100,
-    icon: RiReactjsLine,
-    color: "text-cyan-400",
-  },
+  { name: "React", icon: RiReactjsLine, category: "Frontend" },
   {
     name: "TypeScript",
-    level: 100,
     icon: RiCodeSSlashLine,
-    color: "text-blue-400",
+    category: "Programming",
   },
   {
     name: "Git & GitHub",
-    level: 85,
     icon: RiGithubFill,
-    color: "text-purple-400",
+    category: "Version Control",
   },
 ];
 
-const learning = [
-  {
-    name: "Backend Development",
-    icon: RiTerminalBoxLine,
-    description: "Learning server-side development and APIs.",
-  },
-  {
-    name: "DevOps",
-    icon: RiCloudLine,
-    description: "Exploring cloud, automation and deployment.",
-  },
-];
-
-function Skills() {
+export default function Skills() {
   return (
     <section
       id="Skills"
-      className="relative overflow-hidden bg-[#0d0c1b] px-6 py-20 text-white md:px-12"
+      className="bg-[#F8F4EF] px-6 py-20 md:px-12"
     >
-      {/* Background Glow */}
-      <div className="pointer-events-none absolute -right-32 top-20 h-72 w-72 rounded-full bg-fuchsia-600/10 blur-3xl" />
+      <div className="mx-auto max-w-7xl">
 
-      <div className="relative mx-auto max-w-6xl">
-
-        {/* Heading */}
         <div className="mb-12 text-center">
-          <p className="mb-3 text-xs font-bold tracking-[0.3em] text-fuchsia-400">
-            WHAT I WORK WITH
+          <p className="mb-4 text-xs font-bold uppercase tracking-[0.3em] text-[#A17D60]">
+            02 — My Expertise
           </p>
 
-          <h2 className="text-4xl font-black md:text-5xl">
-            My{" "}
-            <span className="bg-gradient-to-r from-violet-400 to-pink-400 bg-clip-text text-transparent">
-              Skills.
+          <h2 className="text-4xl font-bold text-[#30251F] md:text-5xl">
+            Skills &{" "}
+            <span className="font-serif italic font-normal text-[#99765B]">
+              Technologies.
             </span>
           </h2>
 
-          <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-slate-400">
-            Technologies I use to transform creative ideas into
-            modern and responsive web experiences.
+          <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-[#765C48]">
+            Technologies I use and continue to explore throughout
+            my development journey.
           </p>
         </div>
 
-        {/* Skills Grid */}
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-
-          {skills.map((skill) => {
-            const Icon = skill.icon;
-
-            return (
-              <div
-                key={skill.name}
-                className="group rounded-2xl border border-white/10 bg-[#131225] p-4 transition-all duration-500 ease-in-out hover:-translate-y-2 hover:scale-[1.03] hover:border-fuchsia-400 hover:bg-[#1d1935] hover:shadow-xl hover:shadow-fuchsia-500/20"
-              >
-
-                <div className="mb-5 flex items-center justify-between">
-
-                  <div className="flex items-center gap-3">
-
-                    {/* Icon */}
-                    <div className="rounded-xl bg-white/5 p-3 transition-all duration-300 group-hover:rotate-6 group-hover:bg-fuchsia-500/20">
-                      <Icon className={`text-2xl ${skill.color}`} />
-                    </div>
-
-                    <h3 className="text-base font-bold">
-                      {skill.name}
-                    </h3>
-                  </div>
-
-                  <span className="text-sm font-bold text-fuchsia-400">
-                    {skill.level}%
-                  </span>
-                </div>
-
-                {/* Animated Progress Bar */}
-                <div className="h-2 w-full overflow-hidden rounded-full bg-white/10">
-                  <div
-                    className="h-full origin-left scale-x-0 rounded-full bg-gradient-to-r from-violet-600 via-fuchsia-500 to-pink-400 transition-transform duration-1000 ease-out group-hover:scale-x-100"
-                    style={{ width: `${skill.level}%` }}
-                  />
-                </div>
-
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {skills.map(({ name, icon: Icon, category }) => (
+            <article
+              key={name}
+              className="group rounded-3xl border border-[#E6D9CC] bg-[#FFFCF8] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#C9B29A] hover:shadow-[0_12px_30px_#30251F0C]"
+            >
+              <div className="mb-7 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#EDE3D7] text-3xl text-[#765C48] transition-transform duration-300 group-hover:rotate-6">
+                <Icon />
               </div>
-            );
-          })}
 
+              <h3 className="text-xl font-bold text-[#30251F]">
+                {name}
+              </h3>
+
+              <p className="mt-2 text-sm text-[#99765B]">
+                {category}
+              </p>
+
+              <div className="mt-6 h-px bg-[#E8DED2]" />
+
+              <p className="mt-4 text-xs font-semibold uppercase tracking-widest text-[#A17D60]">
+                In My Toolkit
+              </p>
+            </article>
+          ))}
         </div>
 
         {/* Currently Learning */}
-        <div className="mt-16">
+        <div className="mt-16 rounded-3xl bg-[#EDE3D7] p-7 md:p-10">
+          <div className="mb-7">
+            <p className="mb-2 text-xs font-bold uppercase tracking-widest text-[#A17D60]">
+              Always Growing
+            </p>
 
-          <div className="mb-6 flex items-center gap-3">
-            <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-fuchsia-400" />
-
-            <h3 className="text-xl font-bold">
+            <h3 className="text-2xl font-bold text-[#30251F]">
               Currently Learning
             </h3>
           </div>
 
           <div className="grid gap-4 md:grid-cols-2">
+            <div className="flex items-center gap-4 rounded-2xl bg-[#F8F4EF] p-5">
+              <div className="rounded-xl bg-[#E8D8C7] p-3 text-2xl text-[#765C48]">
+                <RiTerminalBoxLine />
+              </div>
 
-            {learning.map((item) => {
-              const Icon = item.icon;
+              <div>
+                <h4 className="font-bold text-[#30251F]">
+                  Backend Development
+                </h4>
 
-              return (
-                <div
-                  key={item.name}
-                  className="group flex items-center gap-4 rounded-2xl border border-violet-400/20 bg-gradient-to-r from-violet-500/10 to-fuchsia-500/5 p-5 transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] hover:border-fuchsia-400/50 hover:shadow-lg hover:shadow-fuchsia-500/10"
-                >
+                <p className="mt-1 text-sm text-[#765C48]">
+                  APIs and server-side technologies
+                </p>
+              </div>
+            </div>
 
-                  <div className="rounded-xl bg-fuchsia-500/10 p-3 text-2xl text-fuchsia-400 transition-transform duration-300 group-hover:rotate-12">
-                    <Icon />
-                  </div>
+            <div className="flex items-center gap-4 rounded-2xl bg-[#F8F4EF] p-5">
+              <div className="rounded-xl bg-[#E8D8C7] p-3 text-2xl text-[#765C48]">
+                <RiCloudLine />
+              </div>
 
-                  <div>
-                    <h4 className="text-base font-bold">
-                      {item.name}
-                    </h4>
+              <div>
+                <h4 className="font-bold text-[#30251F]">
+                  DevOps
+                </h4>
 
-                    <p className="mt-1 text-sm leading-6 text-slate-400">
-                      {item.description}
-                    </p>
-                  </div>
-
-                </div>
-              );
-            })}
-
+                <p className="mt-1 text-sm text-[#765C48]">
+                  Linux, cloud and deployment practices
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-
       </div>
     </section>
   );
 }
-
-export default Skills;

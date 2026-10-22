@@ -5,200 +5,159 @@ import {
   RiMailLine,
   RiGithubFill,
   RiLinkedinFill,
-  RiSendPlaneFill,
+  RiSendPlaneLine,
   RiArrowRightUpLine,
-  RiMapPinLine,
 } from "react-icons/ri";
 
-function Contact() {
+// Replace these with your actual details.
+const CONTACT_EMAIL = "your-email@example.com";
+const GITHUB_URL = "https://github.com/";
+const LINKEDIN_URL = "https://www.linkedin.com/";
+
+export default function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     const subject = encodeURIComponent(
-      `Portfolio Contact from ${name}`
+      `Portfolio message from ${name}`
     );
 
     const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+      `Name: ${name}\nEmail: ${email}\n\n${message}`
     );
 
-    // Replace with your actual email address
     window.location.href =
-      `mailto:your-email@example.com?subject=${subject}&body=${body}`;
-  };
+      `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+  }
 
   return (
     <section
       id="Contact"
-      className="relative overflow-hidden bg-[#080814] px-6 py-20 text-white md:px-12"
+      className="bg-[#F8F4EF] px-6 py-20 md:px-12"
     >
-      {/* Background Glow */}
-      <div className="pointer-events-none absolute -left-32 top-20 h-80 w-80 rounded-full bg-violet-600/10 blur-3xl" />
-
-      <div className="pointer-events-none absolute -right-32 bottom-0 h-80 w-80 rounded-full bg-fuchsia-600/10 blur-3xl" />
-
-      <div className="relative mx-auto max-w-6xl">
-
-        {/* Heading */}
+      <div className="mx-auto max-w-7xl">
         <div className="mb-12 text-center">
-
-          <p className="mb-3 text-xs font-bold tracking-[0.3em] text-fuchsia-400">
-            GET IN TOUCH
+          <p className="mb-4 text-xs font-bold uppercase tracking-[0.3em] text-[#A17D60]">
+            04 — Get In Touch
           </p>
 
-          <h2 className="text-4xl font-black md:text-5xl">
-            Let's{" "}
-            <span className="bg-gradient-to-r from-violet-400 to-pink-400 bg-clip-text text-transparent">
-              Connect.
+          <h2 className="text-4xl font-bold text-[#30251F] md:text-5xl">
+            Let's create{" "}
+            <span className="font-serif italic font-normal text-[#99765B]">
+              together.
             </span>
           </h2>
 
-          <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-slate-400">
-            Have a project in mind or want to collaborate?
-            Feel free to reach out. I'd love to hear from you!
+          <p className="mx-auto mt-5 max-w-lg text-sm leading-7 text-[#765C48]">
+            Have an idea, project or opportunity? I'd love to
+            connect and hear about it.
           </p>
-
         </div>
 
         <div className="grid gap-8 lg:grid-cols-2">
 
-          {/* LEFT SIDE */}
-          <div className="space-y-5">
+          {/* Left Side */}
+          <div className="flex flex-col justify-between rounded-3xl bg-[#EDE3D7] p-8 md:p-10">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-widest text-[#99765B]">
+                Let's Talk
+              </span>
 
-            <div className="rounded-2xl border border-white/10 bg-[#131225] p-6">
-
-              <h3 className="mb-3 text-2xl font-bold">
-                Let's build something
-                <span className="text-fuchsia-400"> amazing!</span>
+              <h3 className="mt-5 font-serif text-4xl italic leading-tight text-[#30251F]">
+                Great things start
+                <br />
+                with a conversation.
               </h3>
 
-              <p className="text-sm leading-7 text-slate-400">
-                I'm always interested in new opportunities,
-                creative projects and connecting with fellow
-                developers.
+              <p className="mt-5 max-w-sm text-sm leading-7 text-[#765C48]">
+                I'm interested in frontend projects, collaboration
+                and opportunities to continue learning and growing.
               </p>
 
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="mt-9 flex items-center gap-4 rounded-2xl bg-[#F8F4EF] p-5 transition-transform duration-300 hover:-translate-y-1"
+              >
+                <div className="rounded-xl bg-[#E8D8C7] p-3 text-xl text-[#765C48]">
+                  <RiMailLine />
+                </div>
+
+                <div>
+                  <p className="text-xs text-[#99765B]">
+                    Email Me
+                  </p>
+
+                  <p className="mt-1 break-all text-sm font-bold text-[#30251F]">
+                    {CONTACT_EMAIL}
+                  </p>
+                </div>
+
+                <RiArrowRightUpLine className="ml-auto text-xl text-[#765C48]" />
+              </a>
             </div>
 
-            {/* Email */}
-            <div className="group flex items-center gap-4 rounded-2xl border border-white/10 bg-[#131225] p-5 transition-all duration-500 hover:-translate-y-1 hover:border-fuchsia-400/50 hover:shadow-lg hover:shadow-fuchsia-500/10">
+            <div className="mt-12">
+              <p className="mb-4 text-xs font-bold uppercase tracking-widest text-[#99765B]">
+                Follow Along
+              </p>
 
-              <div className="rounded-xl bg-fuchsia-500/10 p-3 text-2xl text-fuchsia-400">
-                <RiMailLine />
-              </div>
-
-              <div>
-                <p className="text-xs text-slate-400">
-                  Email Me
-                </p>
-
-                <p className="mt-1 text-sm font-semibold">
-                  your-email@example.com
-                </p>
-              </div>
-
-            </div>
-
-            {/* Location */}
-            <div className="group flex items-center gap-4 rounded-2xl border border-white/10 bg-[#131225] p-5 transition-all duration-500 hover:-translate-y-1 hover:border-fuchsia-400/50">
-
-              <div className="rounded-xl bg-violet-500/10 p-3 text-2xl text-violet-400">
-                <RiMapPinLine />
-              </div>
-
-              <div>
-                <p className="text-xs text-slate-400">
-                  Location
-                </p>
-
-                <p className="mt-1 text-sm font-semibold">
-                  Pakistan
-                </p>
-              </div>
-
-            </div>
-
-            {/* Social Links */}
-            <div className="rounded-2xl border border-white/10 bg-[#131225] p-6">
-
-              <h4 className="mb-5 font-bold">
-                Find Me Online
-              </h4>
-
-              <div className="flex gap-4">
-
+              <div className="flex gap-3">
                 <a
-                  href="https://github.com/"
+                  href={GITHUB_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub"
-                  className="rounded-xl border border-white/10 bg-white/5 p-3 text-2xl transition-all duration-300 hover:-translate-y-2 hover:border-fuchsia-400 hover:bg-fuchsia-500/20 hover:text-fuchsia-400"
+                  className="rounded-full bg-[#F8F4EF] p-4 text-xl text-[#30251F] transition-all duration-300 hover:-translate-y-1 hover:bg-[#D8C3AD]"
                 >
                   <RiGithubFill />
                 </a>
 
                 <a
-                  href="https://www.linkedin.com/feed/"
+                  href={LINKEDIN_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
-                  className="rounded-xl border border-white/10 bg-white/5 p-3 text-2xl transition-all duration-300 hover:-translate-y-2 hover:border-fuchsia-400 hover:bg-fuchsia-500/20 hover:text-fuchsia-400"
+                  className="rounded-full bg-[#F8F4EF] p-4 text-xl text-[#30251F] transition-all duration-300 hover:-translate-y-1 hover:bg-[#D8C3AD]"
                 >
                   <RiLinkedinFill />
                 </a>
-
               </div>
             </div>
-
           </div>
 
-          {/* RIGHT SIDE - CONTACT FORM */}
-          <div className="rounded-3xl border border-white/10 bg-[#131225] p-6 shadow-xl md:p-8">
+          {/* Contact Form */}
+          <div className="rounded-3xl bg-[#30251F] p-8 md:p-10">
+            <h3 className="mb-8 text-2xl font-bold text-[#F8F4EF]">
+              Send a Message
+            </h3>
 
-            <div className="mb-7 flex items-center justify-between">
-
-              <h3 className="text-xl font-bold">
-                Send a Message
-              </h3>
-
-              <RiArrowRightUpLine className="text-2xl text-fuchsia-400" />
-
-            </div>
-
-            <form
-              onSubmit={handleSubmit}
-              className="space-y-5"
-            >
-
-              {/* Name */}
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label
                   htmlFor="contact-name"
-                  className="mb-2 block text-sm text-slate-300"
+                  className="mb-2 block text-sm text-[#E8D8C7]"
                 >
                   Your Name
                 </label>
 
                 <input
                   id="contact-name"
-                  type="text"
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Enter your name"
-                  className="w-full rounded-xl border border-white/10 bg-[#0d0c1b] px-4 py-3 text-sm text-white outline-none transition-all duration-300 placeholder:text-slate-600 focus:border-fuchsia-400 focus:ring-2 focus:ring-fuchsia-500/20"
+                  className="w-full rounded-xl border border-[#765C48] bg-[#49382D] px-4 py-3 text-sm text-white outline-none placeholder:text-[#B9A38F] focus:border-[#D8C3AD]"
                 />
               </div>
 
-              {/* Email */}
               <div>
                 <label
                   htmlFor="contact-email"
-                  className="mb-2 block text-sm text-slate-300"
+                  className="mb-2 block text-sm text-[#E8D8C7]"
                 >
                   Email Address
                 </label>
@@ -210,15 +169,14 @@ function Contact() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
-                  className="w-full rounded-xl border border-white/10 bg-[#0d0c1b] px-4 py-3 text-sm text-white outline-none transition-all duration-300 placeholder:text-slate-600 focus:border-fuchsia-400 focus:ring-2 focus:ring-fuchsia-500/20"
+                  className="w-full rounded-xl border border-[#765C48] bg-[#49382D] px-4 py-3 text-sm text-white outline-none placeholder:text-[#B9A38F] focus:border-[#D8C3AD]"
                 />
               </div>
 
-              {/* Message */}
               <div>
                 <label
                   htmlFor="contact-message"
-                  className="mb-2 block text-sm text-slate-300"
+                  className="mb-2 block text-sm text-[#E8D8C7]"
                 >
                   Your Message
                 </label>
@@ -230,37 +188,34 @@ function Contact() {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Write your message..."
-                  className="w-full resize-none rounded-xl border border-white/10 bg-[#0d0c1b] px-4 py-3 text-sm text-white outline-none transition-all duration-300 placeholder:text-slate-600 focus:border-fuchsia-400 focus:ring-2 focus:ring-fuchsia-500/20"
+                  className="w-full resize-none rounded-xl border border-[#765C48] bg-[#49382D] px-4 py-3 text-sm text-white outline-none placeholder:text-[#B9A38F] focus:border-[#D8C3AD]"
                 />
               </div>
 
-              {/* Submit Button */}
               <button
                 type="submit"
-                className="flex w-full items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 px-6 py-3.5 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-fuchsia-500/30"
+                className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#D8C3AD] px-6 py-3.5 text-sm font-bold text-[#30251F] transition-all duration-300 hover:-translate-y-1 hover:bg-[#F8F4EF]"
               >
-                Send Message
-                <RiSendPlaneFill className="text-lg" />
+                Open Email App <RiSendPlaneLine />
               </button>
-
             </form>
-          </div>
 
+            <p className="mt-4 text-xs leading-5 text-[#C9B6A2]">
+              This form opens your email application rather than
+              sending messages directly.
+            </p>
+          </div>
         </div>
 
-        {/* Footer */}
-        <div className="mt-20 border-t border-white/10 pt-8 text-center">
-
-          <p className="text-sm text-slate-500">
+        <footer className="mt-20 flex flex-col items-center justify-between gap-4 border-t border-[#E3D6C8] pt-8 text-center text-sm text-[#99765B] md:flex-row">
+          <p>
             © {new Date().getFullYear()} Ansharah Naeem.
-            Crafted with React & Tailwind CSS.
+            All rights reserved.
           </p>
 
-        </div>
-
+          <p>Made with care & a little creativity.</p>
+        </footer>
       </div>
     </section>
   );
 }
-
-export default Contact;
